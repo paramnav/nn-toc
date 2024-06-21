@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: Parameswaran
+    given-names: Naveenkumar
+    orcid: https://orcid.org/0000-0003-3817-2863
+title: "Global Prediction Of Total Organic Carbon In Marine Sediments Using Deep Neural Networks (nn-toc)"
+version: 2.0.4
+identifiers:
+  - type: doi
+    value: https://doi.org/10.3289/SW_3_2024
+date-released: 2024-05-16
