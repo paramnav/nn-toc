@@ -77,6 +77,8 @@ target/
 
 # exclude data from source control by default
 /data
+/notebooks/TOC/preprocessed
+/notebooks/TOC/Infogain\ Experiment/preprocessed
 
 # Mac OS-specific storage files
 .DS_Store
