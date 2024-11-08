@@ -13,9 +13,9 @@ from scipy.optimize import curve_fit
 import time
 ################################################################################
 
-filename = Path().resolve().parents[1] / "data" / "output" / "predictionmaps_TOC" / "prediction_map_dist_CS.npy"
+filename = Path().resolve().parents[1] / "data" / "output" / "predictionmaps_TOC" / "prediction_map_dist_CS_v2.npy"
 prediction_dist_CS = np.load(filename)
-prediction_dist_DO = np.load(Path().resolve().parents[1] / "data" / "output" / "predictionmaps_TOC" / "prediction_map_dist_DO.npy")
+prediction_dist_DO = np.load(Path().resolve().parents[1] / "data" / "output" / "predictionmaps_TOC" / "prediction_map_dist_DO_v2.npy")
 
 dataset_mask = np.load(Path().resolve().parents[1] / "data" / "interim" / "masks" / "mask_deepocean.npy")
 dataset_mask = np.rot90(np.rot90(np.fliplr(dataset_mask)))
@@ -176,6 +176,6 @@ print(cov_matrix_list.shape)
 
 elapsed_time = end_time - start_time
 print(f"Elapsed time: {elapsed_time} seconds")
-np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "param_opt_list", param_opt_list)
-np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "cov_matrix_list", cov_matrix_list)
-np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "tolerance_list", tolerance_list)
+np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "param_opt_list_v2", param_opt_list)
+np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "cov_matrix_list_v2", cov_matrix_list)
+np.save(Path().resolve().parents[1] / "notebooks" / "TOC" / "preprocessed" / "tolerance_list_v2", tolerance_list)

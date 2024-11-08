@@ -87,7 +87,10 @@ def evaluate_model(model, testloader, output_path):
 
     features = torch.tensor(test_features)
     labels = torch.tensor(test_labels)
-    test_targets = model(features.to("cuda:0")).cpu().detach().numpy().flatten()
+    if torch.cuda.is_available():
+        test_targets = model(features.to("cuda:0")).cpu().detach().numpy().flatten()
+    else:
+        test_targets = model(features).detach().numpy().flatten()
     test_labels = labels.cpu().detach().numpy()
 
     print(test_targets.flatten().shape)
@@ -121,7 +124,10 @@ def evaluate_model(model, testloader, output_path):
     return test_labels, test_targets        
         
 def evaluate_all_predictions(model, features, labels, output_path):
-    all_targets = model(features.to("cuda:0")).cpu().detach().numpy().flatten()
+    if torch.cuda.is_available():
+        all_targets = model(features.to("cuda:0")).cpu().detach().numpy().flatten()
+    else:
+        all_targets = model(features).detach().numpy().flatten()
     all_labels = labels.cpu().detach().numpy()
 
     corr_coef = np.ma.corrcoef(all_labels, all_targets)[0, 1]

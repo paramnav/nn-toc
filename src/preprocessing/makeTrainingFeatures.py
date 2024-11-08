@@ -117,10 +117,12 @@ def process_features(lee_features_path, lee_files, df_clean):
     features = np.concatenate([lee_features], axis = 1)
     X_mean = np.concatenate([lee_X_mean])
     X_std = np.concatenate([lee_X_std])
-    features.shape
-    return lee_features, X_mean, X_std
+    latitudes_labels = np.array(df_clean["Latitude"])
+    longitudes_labels = np.array(df_clean["Longitude"])
+    
+    return lee_features, X_mean, X_std, latitudes_labels, longitudes_labels
 
-def save_data(features, labels, mean, std, save_path):
+def save_data(features, labels, mean, std, lat_labels, lon_labels, save_path):
     """
     Save processed data.
 
@@ -135,4 +137,6 @@ def save_data(features, labels, mean, std, save_path):
     np.save(save_path / "numpy_labels", labels)
     np.save(save_path / "features_mean", mean)
     np.save(save_path / "features_std", std)
+    np.save(save_path / "numpy_lat", lat_labels)
+    np.save(save_path / "numpy_lon", lon_labels)
 

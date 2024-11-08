@@ -239,7 +239,7 @@ def get_model_performance_metrics():
 
 ########################################################################
 
-def preprocess_features_labels(features, labels, X_mean, X_std):
+def preprocess_features_labels(features, labels, lats, lons, X_mean, X_std):
     """
     Preprocesses features and labels.
 
@@ -259,6 +259,9 @@ def preprocess_features_labels(features, labels, X_mean, X_std):
     np.save("FeatureNanRows", nan_rows)
     features = features[~nan_rows, :]
     labels = labels[~nan_rows]
+    lats = lats[~nan_rows]
+    lons = lons[~nan_rows]
+    
 
     # Drop features with NaN values
     nan_rows = np.isnan(features).any(axis=0)
@@ -302,17 +305,24 @@ def preprocess_features_labels(features, labels, X_mean, X_std):
     num_nan_values_before = np.sum(np.isnan(arr), axis=1)
     arr = arr[~np.isnan(arr).any(axis=1)]
     num_nan_values_after = np.sum(np.isnan(arr), axis=1)
+    print(lats.shape)
+    print(labels.shape)
+    lats = lats[~np.isnan(labels)]
+    lons = lons[~np.isnan(labels)]
     labels = labels[~np.isnan(labels)]
+
     features = arr
 
     print(f"Number of rows in features before: {len(num_nan_values_before)}")
     print(f"Number of rows in features after: {len(num_nan_values_after)}")
     print(f"Number of rows in labels: {len(labels)}")
+    print(f"Number of rows in lats: {len(lats)}")
+    print(f"Number of rows in lons: {len(lons)}")
 
     #features = torch.tensor(features)
     #labels = torch.tensor(labels)
 
-    return features, labels
+    return features, labels, lats, lons
 
 
 def create_train_test_loader(features, labels, batch_size = 200, test_size_ratio=1/7, shuffle=True):
