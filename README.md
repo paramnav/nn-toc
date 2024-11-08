@@ -40,12 +40,21 @@ Project Organization
     │         ├── MakeGlobalFeatures.ipynb 
     │         ├── TOC_NN_CS.ipynb
     │         ├── TOC_NN_DO.ipynb
+    │         ├── TOC_NN_entire.ipynb    
     │         ├── TOC_KNN_CS.ipynb
     │         ├── TOC_KNN_DO.ipynb
     │         ├── TOC_RF_CS.ipynb
     │         ├── TOC_RF_DO.ipynb
     │         ├── Visualisation.ipynb    
-    │         └── InfoGain.ipynb
+    │         ├── InfoGain.ipynb
+    │         ├── ExtractLabels.ipynb   
+    │         └── Infogain Experiment
+    │                 ├── TOC_NN_CS_firsthalf.ipynb
+    │                 ├── TOC_NN_CS_secondhalf.ipynb
+    │                 ├── TOC_NN_DO_firsthalf.ipynb
+    │                 ├── TOC_NN_DO_secondhalf.ipynb
+    │                 ├── TOC_NN_DO_2_3.ipynb
+    │                 └── TOC_NN_CS_2_3.ipynb
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
     │
@@ -152,6 +161,8 @@ The script uses concurrent.futures for multi-processing and is computationally i
 After this, use the jupyter notebook nn-toc/notebooks/TOC/InfoGain.ipynb
 
 This notebook evaluates the KL divergence (or Information gain) between the true distribution and the predicted distibution from the Monte Carlo dropout ensemble. 
+
+To check if information gain works and actually brings in improvement in the model, we did an experiment, by comparing outputs from a model trained with points of more information gain with a model trained with points of low information gain. This experiment is included in /notebooks/TOC/Infogain\ Experiment/.
 
 
 
