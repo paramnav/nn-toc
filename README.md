@@ -2,7 +2,7 @@
 
 # Global Prediction Of Total Organic Carbon In Marine Sediments Using Deep Neural Networks (nn-toc)
 <p align="center">
-<img align="center" src="notebooks/TOC/preprocessed/TOCPercent.png">
+<img align="center" src="reports/figures/f03.png">
 </p>
 
 DOI: https://doi.org/10.3289/SW_3_2024
